@@ -24,3 +24,9 @@ Route::view('/login', "login");
 Route::post("/login", [UserController::class, 'login']);
 
 Route::get('/admin_dash', [AdminController::class, 'index']);
+
+Route::get('/user_manage', [AdminController::class, 'user_manage']);
+
+Route::get('/product_manage', [AdminController::class, 'product_manage']);
+
+Route::get('/contact_manage', [AdminController::class, 'contact_manage']);
