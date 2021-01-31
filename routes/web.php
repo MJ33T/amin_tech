@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::get('/', function () {
 Route::view('/login', "login");
 
 Route::post("/login", [UserController::class, 'login']);
+
+Route::get('/admin_dash', [AdminController::class, 'index']);
