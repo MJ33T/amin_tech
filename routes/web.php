@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('login');
+});
+
 Route::view('/login', "login");
 
 Route::post("/login", [UserController::class, 'login']);
