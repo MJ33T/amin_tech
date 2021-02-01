@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,7 @@ Route::post('contact_us', [ContactController::class, 'send_message']);
 Route::get('view_contact/{id}', [AdminController::class, 'view_contact']);
 
 Route::get('delete_contact/{id}', [AdminController::class, 'delete_contact']);
+
+Route::get('product_import', [ProductController::class, 'import_view']);
+
+Route::post('product_import', [ProductController::class, 'import']);

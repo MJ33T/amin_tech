@@ -6,13 +6,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/user_manage">User Management</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/product_manage">Product Management</a>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Product Management
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/add_edit_product">Add/Edit Product</a>
+          <a class="dropdown-item" href="/product_list">Product List</a>
+          <a class="dropdown-item" href="/product_import">Import Product</a>
+        </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/contact_manage">Contact Management</a>
       </li>
     </ul>
