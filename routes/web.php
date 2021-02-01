@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,5 @@ Route::post('update_user', [AdminController::class, 'update']);
 Route::get('delete_user/{id}', [AdminController::class, 'delete']);
 
 Route::view('/contact_us', 'contact_us');
+
+Route::post('contact_us', [ContactController::class, 'send_message']);
