@@ -30,3 +30,7 @@ Route::get('/user_manage', [AdminController::class, 'user_manage']);
 Route::get('/product_manage', [AdminController::class, 'product_manage']);
 
 Route::get('/contact_manage', [AdminController::class, 'contact_manage']);
+
+Route::view('/add_user', 'add_user');
+
+Route::post('/add_user', [AdminController::class, 'add_user']);
