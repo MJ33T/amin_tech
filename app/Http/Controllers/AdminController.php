@@ -71,6 +71,20 @@ class AdminController extends Controller
     }
 
     function contact_manage(){
-        return view('contact_manage');
+        $contact = Contact::all();
+        return view('contact_manage', ['contacts' => $contact]);
+    }
+
+    function view_contact($id){
+        $cid = \Crypt::decrypt($id);
+        $contact = Contact::find($cid);
+        return view('view_contact', ['contact'=>$contact]);
+    }
+
+    function delete_contact($id){
+        $cid = \Crypt::decrypt($id);
+        $contact = Contact::find($cid);
+        $contact->delete();
+        return redirect('contact_manage');
     }
 }

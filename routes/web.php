@@ -45,3 +45,7 @@ Route::get('delete_user/{id}', [AdminController::class, 'delete']);
 Route::view('/contact_us', 'contact_us');
 
 Route::post('contact_us', [ContactController::class, 'send_message']);
+
+Route::get('view_contact/{id}', [AdminController::class, 'view_contact']);
+
+Route::get('delete_contact/{id}', [AdminController::class, 'delete_contact']);
