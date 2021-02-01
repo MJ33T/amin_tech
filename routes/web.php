@@ -38,3 +38,5 @@ Route::post('/add_user', [AdminController::class, 'add_user']);
 Route::get('update_user/{id}', [AdminController::class, 'updateshow']);
 
 Route::post('update_user', [AdminController::class, 'update']);
+
+Route::get('delete_user/{id}', [AdminController::class, 'delete']);

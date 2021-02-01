@@ -58,6 +58,13 @@ class AdminController extends Controller
         }
     }
 
+    function delete($id){
+        $uid = \Crypt::decrypt($id);
+        $user = User::find($uid);
+        $user->delete();
+        return redirect('user_manage');
+    }
+
     function product_manage(){
         return view('product_manage');
     }
