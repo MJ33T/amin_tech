@@ -34,3 +34,7 @@ Route::get('/contact_manage', [AdminController::class, 'contact_manage']);
 Route::view('/add_user', 'add_user');
 
 Route::post('/add_user', [AdminController::class, 'add_user']);
+
+Route::get('update_user/{id}', [AdminController::class, 'updateshow']);
+
+Route::post('update_user', [AdminController::class, 'update']);

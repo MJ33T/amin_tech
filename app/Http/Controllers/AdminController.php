@@ -36,6 +36,28 @@ class AdminController extends Controller
 
     }
 
+    function updateshow($id){
+        $uid =\Crypt::decrypt($id);
+        $user = User::find($uid);
+        return view('/update_user', ['user'=> $user]);
+        
+    }
+
+    function update(Request $req){
+        if($req->session()->has('user')){
+            $user = User::find($req->id);
+            $user->name = $req->name;
+            $user->email = $req->email;
+            $user->phone = $req->phone;
+            $user->address = $req->address;
+            $user->save();
+            return redirect('/user_manage');
+        }
+        else{
+            return redirect('/login');
+        }
+    }
+
     function product_manage(){
         return view('product_manage');
     }
