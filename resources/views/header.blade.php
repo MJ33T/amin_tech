@@ -11,9 +11,9 @@
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Home</a>
+          <a class="dropdown-item" href="/">Home</a>
           <a class="dropdown-item" href="#">Products</a>
-          <a class="dropdown-item" href="#">Contact Us</a>
+          <a class="dropdown-item" href="/contact_us">Contact Us</a>
         </div>
       </li>
     </ul>

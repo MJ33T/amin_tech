@@ -40,3 +40,5 @@ Route::get('update_user/{id}', [AdminController::class, 'updateshow']);
 Route::post('update_user', [AdminController::class, 'update']);
 
 Route::get('delete_user/{id}', [AdminController::class, 'delete']);
+
+Route::view('/contact_us', 'contact_us');
