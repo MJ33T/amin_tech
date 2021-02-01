@@ -23,6 +23,7 @@
     .custom-login{
         height: 500px;
         padding-top: 100px;
+        margin-left: 600px;
     }
     .footer {
         position: fixed;
