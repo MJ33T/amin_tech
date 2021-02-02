@@ -17,7 +17,7 @@
 <body>
     {{View::make('header_admin')}}
     @yield('content_admin')
-    {{View::make('footer')}}
+    {{-- {{View::make('footer')}} --}}
 </body>
 <style>
     .footer {

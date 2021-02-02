@@ -38,9 +38,6 @@ class ProductController extends Controller
             $url = $data['image'];
             $extension = pathinfo($url, PATHINFO_EXTENSION);
             $filename = $data['sku'].'.'.$extension;
-            if($filename == ""){
-                $filename = "No Image";
-            }
 
             $image = file_get_contents($url);
             $save = file_put_contents('images/'.$filename, $image);
@@ -59,7 +56,7 @@ class ProductController extends Controller
     }
 
     function product_list(){
-        $product = Product::all();
+        $product = Product::paginate(10);
         return view('product_list', ['products'=>$product]);
     }
 }
