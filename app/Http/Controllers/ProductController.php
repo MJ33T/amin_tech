@@ -35,15 +35,31 @@ class ProductController extends Controller
             $price = $data['price'];
             $image = $data['image'];
 
+            $url = $data['image'];
+            $extension = pathinfo($url, PATHINFO_EXTENSION);
+            $filename = $data['sku'].'.'.$extension;
+            if($filename == ""){
+                $filename = "No Image";
+            }
+
+            $image = file_get_contents($url);
+            $save = file_put_contents('images/'.$filename, $image);
+            
             $product = new Product;
             $product->sku = $sku;
             $product->name = $name;
             $product->description = $description;
             $product->qty = $qty;
             $product->price = $price;
-            $product->image = $image;
-            $product->save();
+            $product->image = $filename;
+            $product->save();   
+
         }
         return redirect('/product_list');
+    }
+
+    function product_list(){
+        $product = Product::all();
+        return view('product_list', ['products'=>$product]);
     }
 }

@@ -59,3 +59,5 @@ Route::get('delete_contact/{id}', [AdminController::class, 'delete_contact']);
 Route::get('product_import', [ProductController::class, 'import_view']);
 
 Route::post('product_import', [ProductController::class, 'import']);
+
+Route::get('product_list', [ProductController::class, 'product_list']);
