@@ -86,4 +86,13 @@ class ProductController extends Controller
         $product = Product::find($pid);
         return view('product_detail', ['product'=>$product]);
     }
+
+    function add_edit_product(){
+        if(session()->has('user')){
+            return view('add_edit_product');
+        }
+        else{
+            return redirect('login');
+        }
+    }
 }
