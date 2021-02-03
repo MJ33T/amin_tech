@@ -30,6 +30,16 @@ class AdminController extends Controller
         }
     }
 
+    function add_user_view(){
+        if(session()->has('user')){
+            return view('add_user');
+        }
+        else{
+            return redirect('login');
+        }
+        
+    }
+
     function add_user(Request $req){
         if($req->session()->has('user')){
             $user = new User;
@@ -44,7 +54,6 @@ class AdminController extends Controller
         else{
             return redirect('/login');
         }
-
     }
 
     function updateshow($id){
