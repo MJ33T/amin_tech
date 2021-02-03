@@ -13,8 +13,8 @@
                     @foreach ($products as $product)    
                         <div class="col-md-3 product-grid">
                             <div class="image">
-                                <a href="">
-                                    <img src="{{'images/'.$product['image']}}" width="200px" height="200px" alt="">
+                                <a href="/product_detail/{{Crypt::encrypt($product['id'])}}">
+                                    <img src="{{'images/'.$product['image']}}" width="200px" height="200px">
                                     <h6>{{$product['name']}}</h6>
                                 </a>
                             </div>

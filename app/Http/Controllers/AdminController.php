@@ -12,7 +12,12 @@ use Session;
 class AdminController extends Controller
 {
     function index(){
-        return view('admin_dash');
+        if(session()->has('user')){
+            return view('admin_dash');
+        }
+        else{
+            return redirect('/login');
+        }
     }
 
     function user_manage(){

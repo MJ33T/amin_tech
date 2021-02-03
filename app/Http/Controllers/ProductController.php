@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use Session;
 class ProductController extends Controller
 {
     function import_view(){
-        return view('product_import');
+        if(session()->has('user')){
+            return view('product_import');
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function import(Request $req){
@@ -63,5 +68,11 @@ class ProductController extends Controller
     function product_list_public(){
         $product = Product::paginate(20);
         return view('product_list_public', ['products'=>$product]);
+    }
+
+    function product_detail($id){
+        $pid = \Crypt::decrypt($id);
+        $product = Product::find($pid);
+        return view('product_detail', ['product'=>$product]);
     }
 }
