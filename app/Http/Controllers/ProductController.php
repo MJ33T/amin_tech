@@ -47,6 +47,7 @@ class ProductController extends Controller
 
                 $image = file_get_contents($url);
                 $save = file_put_contents('images/'.$filename, $image);
+                $pd_save = file_put_contents('product_detail/images/'.$filename, $image);
                 
                 $product = new Product;
                 $product->sku = $sku;
@@ -74,7 +75,7 @@ class ProductController extends Controller
             return redirect('login');
         }
     }
-    
+
     function product_list_public(){
         $product = Product::paginate(20);
         return view('product_list_public', ['products'=>$product]);

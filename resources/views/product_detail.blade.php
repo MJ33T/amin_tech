@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="image">
-                                    <img src="{!!'images/'.$product['image']!!}" width="500px" height="500px">
+                                    <img src="{{'images/'.$product['image']}}" width="500px" height="500px">
                                 </div>
                             </div>
                             <div class="col-sm-6">
