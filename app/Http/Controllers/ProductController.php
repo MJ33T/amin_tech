@@ -59,4 +59,9 @@ class ProductController extends Controller
         $product = Product::paginate(10);
         return view('product_list', ['products'=>$product]);
     }
+
+    function product_list_public(){
+        $product = Product::paginate(20);
+        return view('product_list_public', ['products'=>$product]);
+    }
 }

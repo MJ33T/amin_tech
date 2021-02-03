@@ -16,7 +16,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Upload</label>
-                                        <input type="file" name="upload_file" class="form-control">
+                                        <input type="file" name="upload_file" class="custom-file">
                                     </div>
                                 </div>
                             </div>
