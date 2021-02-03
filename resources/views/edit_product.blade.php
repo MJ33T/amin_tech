@@ -6,7 +6,7 @@
         <div class="col-sm-12">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add New Product <a href="/admin_dash"><button class="float-right btn btn-warning">Dashboard</button></a></h3> 
+                    <h3 class="card-title">Update Product <a href="/admin_dash"><button class="float-right btn btn-warning">Dashboard</button></a></h3> 
                 </div>
                 <div class="card-body">
                     <form action="/edit_product" method="POST" enctype="multipart/form-data">
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Update Product</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>
