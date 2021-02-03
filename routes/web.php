@@ -67,3 +67,11 @@ Route::get('product_list_public', [ProductController::class, 'product_list_publi
 Route::get('product_detail/{id}', [ProductController::class, 'product_detail']);
 
 Route::get('add_edit_product', [ProductController::class, 'add_edit_product']);
+
+Route::get('add_product', [ProductController::class, 'add_product_view']);
+
+Route::post('add_product', [ProductController::class, 'add_product']);
+
+Route::get('edit_product/{id}', [ProductController::class, 'edit_product_view']);
+
+Route::post('edit_product', [ProductController::class, 'edit_product']);
