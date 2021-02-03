@@ -21,8 +21,13 @@ class AdminController extends Controller
     }
 
     function user_manage(){
-        $user = User::all();
-        return view('user_manage', ['users'=>$user]);
+        if(session()->has('user')){
+            $user = User::all();
+            return view('user_manage', ['users'=>$user]);
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function add_user(Request $req){
@@ -43,10 +48,14 @@ class AdminController extends Controller
     }
 
     function updateshow($id){
-        $uid =\Crypt::decrypt($id);
-        $user = User::find($uid);
-        return view('/update_user', ['user'=> $user]);
-        
+        if(session()->has('user')){
+            $uid =\Crypt::decrypt($id);
+            $user = User::find($uid);
+            return view('/update_user', ['user'=> $user]);
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function update(Request $req){
@@ -65,31 +74,56 @@ class AdminController extends Controller
     }
 
     function delete($id){
-        $uid = \Crypt::decrypt($id);
-        $user = User::find($uid);
-        $user->delete();
-        return redirect('user_manage');
+        if(session()->has('user')){
+            $uid = \Crypt::decrypt($id);
+            $user = User::find($uid);
+            $user->delete();
+            return redirect('user_manage');
+        }
+        else {
+            return redirect('login');
+        }
     }
 
     function product_manage(){
-        return view('product_manage');
+        if(session()->has('user')){
+            return view('product_manage');
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function contact_manage(){
-        $contact = Contact::all();
-        return view('contact_manage', ['contacts' => $contact]);
+        if(session()->has('user')){
+            $contact = Contact::all();
+            return view('contact_manage', ['contacts' => $contact]);
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function view_contact($id){
-        $cid = \Crypt::decrypt($id);
-        $contact = Contact::find($cid);
-        return view('view_contact', ['contact'=>$contact]);
+        if(session()->has('user')){
+            $cid = \Crypt::decrypt($id);
+            $contact = Contact::find($cid);
+            return view('view_contact', ['contact'=>$contact]);
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function delete_contact($id){
-        $cid = \Crypt::decrypt($id);
-        $contact = Contact::find($cid);
-        $contact->delete();
-        return redirect('contact_manage');
+        if(session()->has('user')){
+            $cid = \Crypt::decrypt($id);
+            $contact = Contact::find($cid);
+            $contact->delete();
+            return redirect('contact_manage');
+        }
+        else{
+            return redirect('login');
+        }
     }
 }
