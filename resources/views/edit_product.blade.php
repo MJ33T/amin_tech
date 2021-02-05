@@ -16,6 +16,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Name</label>
+                                        <input type="hidden" name="id" value="{{$product['id']}}">
+                                        <input type="hidden" name="image" value="{{$product['image']}}">
                                         <input type="text" name="name" class="form-control" value="{{$product['name']}}">        
                                     </div>
                                 </div>
@@ -46,7 +48,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Image (Multiple)</label>
-                                        <input type="file" name="upload_file" class="custom-file">
+                                        <input type="file" name="upload_file[]" class="custom-file" multiple>
                                     </div>
                                 </div>
                             </div>

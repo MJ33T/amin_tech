@@ -27,13 +27,13 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Description (with Tag)</label>
                                         <input type="text" name="description" class="form-control" placeholder="Enter Description with Tag">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Price</label>
+                                        <label>Price (with GBP)</label>
                                         <input type="text" name="price" class="form-control" placeholder="Enter Price with GBP">
                                     </div>
                                 </div>

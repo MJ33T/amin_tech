@@ -147,7 +147,45 @@ class ProductController extends Controller
     }
 
     function edit_product(Request $req){
+        if($req->session()->has('user')){
+            $product = Product::find($req->id);
 
+            $count = 1;
+            $all_img_name = '';
+            if($req->has('upload_file')){
+                $img_arr = $req->file('upload_file');
+                $arr_len = count($img_arr);
+
+                for($i=0; $i<$arr_len; $i++){
+                    $extension = $img_arr[$i]->getClientOriginalExtension();
+                    $img_name = $req->sku.'_'.$count.'_'.'up'.'.'.$extension;
+                    $count++;
+                    $save = public_path('images/');
+                    $pd_save = public_path('product_detail/images/');
+                    $img_arr[$i]->move($save, $img_name);
+                    copy($save.$img_name, $pd_save.$img_name);
+
+                    $all_img_name .= $img_name.',';
+                    
+                }
+            }
+            $old_img = $req->image;
+            $old_img .=',';
+            $old_img .= $all_img_name;
+            $final_name = rtrim($old_img, ',');
+            
+            $product->name = $req->name;
+            $product->sku = $req->sku;
+            $product->description = $req->description;
+            $product->price = $req->price;
+            $product->qty = $req->qty;
+            $product->image = $final_name;
+            $product->save();
+            return redirect('add_edit_product');
+        }
+        else{
+            return redirect('login');
+        }
     }
 
 
