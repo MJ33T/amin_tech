@@ -123,13 +123,14 @@ class ProductController extends Controller
                     copy($save.$img_name, $pd_save.$img_name);
 
                     $all_img_name .= $img_name.',';
+                    $final_name = rtrim($all_img_name, ',');
                 }
                 $product->name = $req->name;
                 $product->sku = $req->sku;
                 $product->description = $req->description;
                 $product->price = $req->price;
                 $product->qty = $req->qty;
-                $product->image = $all_img_name;
+                $product->image = $final_name;
                 $product->save();
                 return redirect('product_list');
             }

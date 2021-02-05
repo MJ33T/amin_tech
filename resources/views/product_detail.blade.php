@@ -23,7 +23,7 @@
                             <div class="col-sm-6">
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        @for($i=0; $i<$arr_len-1; $i++)
+                                        @for($i=0; $i<$arr_len; $i++)
                                         <div class="carousel-item {{$active[$i]}}">
                                             <img class="d-block w-100" src="{{asset('images/'.$img[$i])}}" width="500px" height="500px">
                                         </div>
