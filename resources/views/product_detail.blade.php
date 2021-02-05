@@ -1,5 +1,12 @@
 @php
     $img = explode(",", $product['image']);
+    $arr_len = count($img);
+    for($i=0; $i<$arr_len; $i++){
+        $active[$i] = '';
+        if($i == 0){
+            $active[$i] = 'active';
+        }
+    }
 @endphp
 @extends('master')
 @section('content')
@@ -14,8 +21,22 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="image">
-                                    <img src="{{'images/'.$img[0]}}" width="500px" height="500px">
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @for($i=0; $i<$arr_len-1; $i++)
+                                        <div class="carousel-item {{$active[$i]}}">
+                                            <img class="d-block w-100" src="{{asset('images/'.$img[$i])}}" width="500px" height="500px">
+                                        </div>
+                                        @endfor
+                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
