@@ -27,13 +27,13 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Description (with Tag)</label>
                                         <input type="text" name="description" class="form-control" value="{{$product['description']}}">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Price</label>
+                                        <label>Price (with GBP)</label>
                                         <input type="text" name="price" class="form-control" value="{{$product['price']}}">
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label>Image</label>
+                                        <label>Image (Multiple)</label>
                                         <input type="file" name="upload_file" class="custom-file">
                                     </div>
                                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Session;
+
 class ProductController extends Controller
 {
     function import_view(){
@@ -33,6 +34,8 @@ class ProductController extends Controller
             
             while($columns = fgetcsv($file)){
                 $data = array_combine($escapedHeader, $columns);
+                
+                $product = new Product;
 
                 $sku = $data['sku'];
                 $name = $data['name'];
@@ -44,12 +47,12 @@ class ProductController extends Controller
                 $url = $data['image'];
                 $extension = pathinfo($url, PATHINFO_EXTENSION);
                 $filename = $data['sku'].'.'.$extension;
-
-                $image = file_get_contents($url);
-                $save = file_put_contents('images/'.$filename, $image);
-                $pd_save = file_put_contents('product_detail/images/'.$filename, $image);
+                if(!empty($url)){
+                    $image = file_get_contents($url);
+                    $save = file_put_contents('images/'.$filename, $image);
+                    $pd_save = file_put_contents('product_detail/images/'.$filename, $image);
+                }
                 
-                $product = new Product;
                 $product->sku = $sku;
                 $product->name = $name;
                 $product->description = $description;
@@ -102,7 +105,38 @@ class ProductController extends Controller
     }
 
     function add_product(Request $req){
+        if(session()->has('user')){
+            $product = new Product;
+            $count = 1;
+            $all_img_name = '';
+            if($req->has('upload_file')){
+                $img_arr = $req->file('upload_file');
+                $arr_len = count($img_arr);
 
+                for($i=0; $i<$arr_len; $i++){
+                    $extension = $img_arr[$i]->getClientOriginalExtension();
+                    $img_name = $req->sku.'_'.$count.'.'.$extension;
+                    $count++;
+                    $save = public_path('images/');
+                    $pd_save = public_path('product_detail/images/');
+                    $img_arr[$i]->move($save, $img_name);
+                    copy($save.$img_name, $pd_save.$img_name);
+
+                    $all_img_name .= $img_name.',';
+                }
+                $product->name = $req->name;
+                $product->sku = $req->sku;
+                $product->description = $req->description;
+                $product->price = $req->price;
+                $product->qty = $req->qty;
+                $product->image = $all_img_name;
+                $product->save();
+                return redirect('product_list');
+            }
+        }
+        else{
+            return redirect('login');
+        }
     }
 
     function edit_product_view($id){

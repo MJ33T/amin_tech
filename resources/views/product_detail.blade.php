@@ -1,5 +1,9 @@
+@php
+    $img = explode(",", $product['image']);
+@endphp
 @extends('master')
 @section('content')
+<br>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -11,7 +15,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="image">
-                                    <img src="{{'images/'.$product['image']}}" width="500px" height="500px">
+                                    <img src="{{'images/'.$img[0]}}" width="500px" height="500px">
                                 </div>
                             </div>
                             <div class="col-sm-6">

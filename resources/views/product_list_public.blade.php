@@ -10,11 +10,14 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                    @foreach ($products as $product)    
+                    @foreach ($products as $product) 
+                    @php
+                        $img = explode(",", $product['image']);
+                    @endphp   
                         <div class="col-md-3 product-grid">
                             <div class="image">
                                 <a href="/product_detail/{{Crypt::encrypt($product['id'])}}">
-                                    <img src="{{'images/'.$product['image']}}" width="200px" height="200px">
+                                    <img src="{{'images/'.$img[0]}}" width="200px" height="200px">
                                     <h6>{{$product['name']}}</h6>
                                 </a>
                             </div>

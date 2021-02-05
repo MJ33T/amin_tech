@@ -28,13 +28,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input type="text" name="description" class="form-control" placeholder="Enter Description">
+                                        <input type="text" name="description" class="form-control" placeholder="Enter Description with Tag">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input type="text" name="price" class="form-control" placeholder="Enter Price">
+                                        <input type="text" name="price" class="form-control" placeholder="Enter Price with GBP">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
@@ -43,10 +43,10 @@
                                         <input type="text" name="qty" class="form-control" placeholder="Enter Quantity">
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" name="upload_file" class="custom-file">
+                                        <label>Image (Multiple)</label>
+                                        <input type="file" name="upload_file[]" class="custom-file" multiple>
                                     </div>
                                 </div>
                             </div>

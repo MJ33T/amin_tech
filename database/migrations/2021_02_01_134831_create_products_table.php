@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('qty');
             $table->string('price');
             $table->string('image');
+            $table->string('mull_image')->default('');
             $table->timestamps();
         });
     }

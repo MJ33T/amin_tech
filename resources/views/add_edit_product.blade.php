@@ -21,9 +21,12 @@
                             </tr>
                         </thead>
                         <tbody> 
-                            @foreach($products as $product) 
+                            @foreach($products as $product)
+                            @php
+                                $img = explode(",", $product['image']);
+                            @endphp 
                             <tr>
-                                <th><img src="{{asset('images/'.$product['image'])}}" width="100px" height="100px" alt=""></th>
+                                <th><img src="{{asset('images/'.$img[0])}}" width="100px" height="100px" alt=""></th>
                                 <td>{{$product['sku']}}</td>
                                 <td>{{$product['name']}}</td> 
                                 <td><a class="btn btn-block btn-success" href="/edit_product/{{Crypt::encrypt($product['id'])}}">Edit</a></td>                
