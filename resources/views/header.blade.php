@@ -17,5 +17,6 @@
         </div>
       </li>
     </ul>
+    <a class="btn btn-success my-2 my-sm-0" href="/login">Login</a>
   </div>
 </nav>
