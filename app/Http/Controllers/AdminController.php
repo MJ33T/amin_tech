@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
-use \Crypt;
+use Crypt;
 use Illuminate\Support\Facades\Hash;
 use Session;
 
@@ -58,7 +58,7 @@ class AdminController extends Controller
 
     function updateshow($id){
         if(session()->has('user')){
-            $uid =\Crypt::decrypt($id);
+            $uid = Crypt::decrypt($id);
             $user = User::find($uid);
             return view('/update_user', ['user'=> $user]);
         }
@@ -84,7 +84,7 @@ class AdminController extends Controller
 
     function delete($id){
         if(session()->has('user')){
-            $uid = \Crypt::decrypt($id);
+            $uid = Crypt::decrypt($id);
             $user = User::find($uid);
             $user->delete();
             return redirect('user_manage');
@@ -115,7 +115,7 @@ class AdminController extends Controller
 
     function view_contact($id){
         if(session()->has('user')){
-            $cid = \Crypt::decrypt($id);
+            $cid = Crypt::decrypt($id);
             $contact = Contact::find($cid);
             return view('view_contact', ['contact'=>$contact]);
         }
@@ -126,7 +126,7 @@ class AdminController extends Controller
 
     function delete_contact($id){
         if(session()->has('user')){
-            $cid = \Crypt::decrypt($id);
+            $cid = Crypt::decrypt($id);
             $contact = Contact::find($cid);
             $contact->delete();
             return redirect('contact_manage');
