@@ -26,3 +26,30 @@
     List of all contact request
     Detail view of Contact request
     Can be delete any contact request
+    
+    
+## Useage
+
+1.File download and configuration
+
+    clone or donwload zip on the desire directory on local machine
+    
+    edit .env file for Database configuration
+     
+    Run artisan command - php artisan migrate
+    (migrate all the table to the database)
+    
+    Run artisan command - php artisan db:seed --class=UserSeeder
+    (to store firstuser to login for admin on users table)
+    
+2.Start
+
+    Run artisan command - php artisan serve
+    (Start Laravel Development Server)
+
+3.login
+
+    Email Address : jeet@test.com
+    Password : jeet1234
+    
+    
