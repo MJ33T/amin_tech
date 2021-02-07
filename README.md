@@ -1,9 +1,9 @@
 ## About Project
 
 1. User management
-    [A list view of all user]
-    [Each user can be Update or Delete]
-    Also add new user. 
+    **[A list view of all user]**
+    **[Each user can be Update or Delete]**
+    **[Also add new user]** 
 2. Product management
     2.1. Add/edit products
         Add new Product. 
