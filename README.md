@@ -1,16 +1,22 @@
 ## About Project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. User management
+    A list view of all user.
+    Each user can be Update or Delete.
+    Also add new user. 
+2. Product management
+    2.1. Add/edit products
+        Add new Product. 
+        All product list with edit functionality.
+        Also can be added multiple image per product.
+    2.2. List products with image
+    2.3. Import product from CSV file
+        Upload Panel to import CSV file
+        All the product images download from link and Saved to the public/images folder
+3. Contact Request Management
+    List of all contact request
+    Detail view of Contact request
+    Can be delete any contact request
 
 ## Learning Laravel
 
