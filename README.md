@@ -28,7 +28,7 @@
     Can be delete any contact request
     
     
-## Useage
+## Usage
 
 1.File download and configuration
 
